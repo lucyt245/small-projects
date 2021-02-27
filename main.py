@@ -17,6 +17,17 @@ def menu_system():
             mad_libs()
         elif choice == 0:
             exit = True
+            
+
+def int_validation():
+    valid = False
+    while not valid:
+        try:
+            number = int(input("Please enter your choice: "))
+            valid = True
+            return number
+        except ValueError:
+            print("Invalid option entered")
 
 
 def mad_libs():
