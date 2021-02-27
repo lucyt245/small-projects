@@ -15,6 +15,8 @@ def menu_system():
         print("\n")
         if choice == 1:
             mad_libs()
+        elif choice ==2:
+            month_dictionary()
         elif choice == 0:
             exit = True
 
@@ -40,5 +42,27 @@ def mad_libs():
     print(str(word_seven) + " the " + str(word_eight) + " review in 'The " + str(word_nine) + " Times'.")
 
  
+def month_dictionary():
+    print("---------------")
+    print("Month Converter")
+    print("---------------")
+    month_converter = {
+        "Jan": "January",
+        "Feb": "February",
+        "Mar": "March",
+        "May": "May",
+        "Apr": "April",
+        "Jun": "June",
+        "Jul": "July",
+        "Aug": "August",
+        "Sep": "September",
+        "Oct": "October",
+        "Nov": "November",
+        "Dec": "December",
+    }
+    month = input("Enter the shortened version of the month: ")
+    print(month_converter.get(month, "This is not a shortened month"))
+    
+    
  menu_system()
  
