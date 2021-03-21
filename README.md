@@ -7,3 +7,4 @@ This menu system includes:
 	. A 'mad libs' game
 	. My first experience with dictionaries
 	. A hangman game
+	. Add your own words and clues to text file
