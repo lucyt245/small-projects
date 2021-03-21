@@ -1,3 +1,4 @@
+import random
 
 def menu_system():
     exit = False
@@ -7,19 +8,18 @@ def menu_system():
         print("------------------------------")
         print("1 - Mad libs")
         print("2 - Month dictionary")
-        print("3 - Guess the word")
-        print("4 - Files")
-        print("5 - Hangman")
-        print("0 - Exit")
+        print("3 - Hangman")
         choice = int_validation()
         print("\n")
         if choice == 1:
             mad_libs()
-        elif choice ==2:
+        elif choice == 2:
             month_dictionary()
+        elif choice == 3:
+            hangman()
         elif choice == 0:
             exit = True
- 
+
 
 def int_validation():
     valid = False
@@ -30,6 +30,14 @@ def int_validation():
             return number
         except ValueError:
             print("Invalid option entered")
+
+
+def a_or_an(word):
+    vowels = ['a', 'e', 'i', 'o', 'u']
+    for i in range(0, len(vowels)):
+        if word[0] == vowels[i]:
+            return 'an ' + word
+    return 'a ' + word
 
 
 def mad_libs():
@@ -52,7 +60,7 @@ def mad_libs():
     print(str(word_six) + "-ripping goddesses on the front cover. If your friends and family are no help, try ")
     print(str(word_seven) + " the " + str(word_eight) + " review in 'The " + str(word_nine) + " Times'.")
 
- 
+
 def month_dictionary():
     print("---------------")
     print("Month Converter")
@@ -72,8 +80,33 @@ def month_dictionary():
         "Dec": "December",
     }
     month = input("Enter the shortened version of the month: ")
+    month = month.capitalize()
     print(month_converter.get(month, "This is not a shortened month"))
-    
-    
- menu_system()
+
+
+def word_get():
+    words = open("words.txt", "r")
+    lineRead = words.readline()
+    word_list = []
+    hint_list = []
+    i = 0
+    while lineRead != "":
+        split_words = lineRead.split(", ")
+        word_list.append(split_words[0])
+        hint_list.append(split_words[1])
+        i += 1
+        lineRead = words.readline()
+    number = random.randint(0, i)
+    word_choice = word_list[number]
+    print(word_choice)
+    hint = hint_list[number]
+    print(hint)
+    return word_choice, hint
+
+
+def hangman():
+    word_choice, hint = word_get()
+
+
+menu_system()
  
