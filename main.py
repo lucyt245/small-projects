@@ -11,6 +11,7 @@ def menu_system():
         print("1 - Mad libs")
         print("2 - Month dictionary")
         print("3 - Hangman")
+        print("4 - Add word")
         print("0 - Exit")
 
         choice = int_validation()
@@ -22,8 +23,37 @@ def menu_system():
             month_dictionary()
         elif choice == 3:
             hangman()
+        elif choice == 4:
+            add_word()
         elif choice == 0:
             exit = True
+
+
+def add_word():
+    print("-----------")
+    print(" Add words")
+    print("-----------")
+    words = open("words.txt", "r")
+    user_word = input("What word would you like to add?: ")
+    if user_word.isalpha():
+        user_word = user_word.upper()
+        line_read = words.readline()
+        while line_read != "":
+            line_split = line_read.split(", ")
+            if line_split[0] == user_word:
+                print("This word is already on the list")
+                menu_system()
+            line_read = words.readline()
+        words.close()
+        user_hint = input("What hint would you like to give for your word?: ")
+        user_hint = user_hint.upper()
+        add = user_word + ", " + user_hint + "\n"
+        words = open("words.txt", "a")
+        words.write(add)
+        words.close()
+        print("Your word and clue have been added to the list!")
+    else:
+        print("This isn't a valid word")
 
 
 def int_validation():
