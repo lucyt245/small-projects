@@ -12,6 +12,8 @@ def menu_system():
         print("2 - Month dictionary")
         print("3 - Hangman")
         print("4 - Add word")
+        print("5 - Prime numbers")
+        print("6 - Number add")
         print("0 - Exit")
 
         choice = int_validation()
@@ -25,6 +27,10 @@ def menu_system():
             hangman()
         elif choice == 4:
             add_word()
+        elif choice == 5:
+            prime_nums()
+        elif choice == 6:
+            num_add()
         elif choice == 0:
             exit = True
 
@@ -58,7 +64,6 @@ def add_word():
 
 def int_validation():
     valid = False
-
     while not valid:
         try:
             number = int(input("Please enter your choice: "))
@@ -70,11 +75,9 @@ def int_validation():
 
 def a_or_an(word):
     vowels = ['a', 'e', 'i', 'o', 'u']
-
     for i in range(0, len(vowels)):
         if word[0] == vowels[i]:
             return 'an ' + word
-
     return 'a ' + word
 
 
@@ -151,7 +154,6 @@ def word_get():
 
 def guess_validate(wrong_guesses, word_choice, word_display, guessed):
     guessed_before = False
-
     user_guess = input("Please guess a letter or the word: ")
     print(guessed)
 
@@ -222,7 +224,6 @@ def hangman():
 
     word_choice, hint = word_get()
     word_display = []
-
     for i in range(0, len(word_choice)):
         word_display.append("_")
         i += 1
@@ -231,6 +232,7 @@ def hangman():
     guessed = []
     print(hangman_display(wrong_guesses))
     print(word_display)
+
     hangman_guessing(wrong_guesses, word_choice, word_display, guessed)
 
 
@@ -265,6 +267,67 @@ def hangman_guessing(wrong_guesses, word_choice, word_display, guessed):
 
     print("You had too many wrong guesses and DIED")
     print("Better luck next time!")
+
+
+def int_validate():
+    valid = False
+    while not valid:
+        try:
+            user_number = int(input(""))
+            valid = True
+            return user_number
+        except ValueError:
+            print("Please enter an integer")
+
+
+def prime_nums():
+    print("------------------------")
+    print(" Prime Number Generator")
+    print("------------------------")
+    print("What number do you want us to stop at?: ")
+    user_range = int_validate()
+    if user_range < 3:
+        print("This is too low of a number")
+        prime_nums()
+    elif user_range >= 500:
+        print("This is too large of a number")
+        prime_nums()
+    else:
+        for num in range(2, user_range):
+            prime = True
+            for multiple in range(2, num):
+                if num % multiple == 0:
+                    prime = False
+                    num += 1
+            if prime:
+                print(num)
+            num += 1
+
+
+def num_add():
+    print("How many numbers would you like to add: ")
+    num_of_inputs = int_validate()
+    if 1 <= num_of_inputs <= 10:
+        numbers = input("Please enter the numbers you would like to add: ")
+        numbers_list = numbers.split(" ")
+        # print(numbers_list)
+        if len(numbers_list) > num_of_inputs:
+            print("Too many numbers entered")
+            num_add()
+        elif len(numbers_list) < num_of_inputs:
+            print("Not enough numbers entered")
+            print("Check that you have entered them in the correct format")
+            num_add()
+        num_total = 0
+        for i in range(0, len(numbers_list)):
+            if 0 <= int(numbers_list[i]) <= 10**10:
+                num_total += int(numbers_list[i])
+            else:
+                print("Invalid numbers entered")
+                num_add()
+        print(num_total)
+    else:
+        print("Invalid number entered")
 
 
 menu_system()
