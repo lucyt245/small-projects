@@ -284,7 +284,7 @@ def prime_nums():
     print("------------------------")
     print(" Prime Number Generator")
     print("------------------------")
-    print("What number do you want us to stop at?: ")
+    print("What number do you want to stop at?: ")
     user_range = int_validate()
     if user_range < 3:
         print("This is too low of a number")
@@ -305,6 +305,9 @@ def prime_nums():
 
 
 def num_add():
+    print("--------------")
+    print(" Number adder")
+    print("--------------")
     print("How many numbers would you like to add: ")
     num_of_inputs = int_validate()
     if 1 <= num_of_inputs <= 10:
