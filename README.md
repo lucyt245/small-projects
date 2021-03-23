@@ -8,3 +8,5 @@ This menu system includes:
 	. My first experience with dictionaries
 	. A hangman game
 	. Add your own words and clues to text file
+	. Find prime numbers
+	. Add a list of numbers together
