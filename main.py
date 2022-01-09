@@ -9,7 +9,7 @@ def menu_system():
         print("------------------------------")
         print("1 - Mad libs")
         print("2 - Month dictionary")
-        print("3 - Band name generator")
+        print("3 - Tip calculator")
         print("4 - Add word")
         print("5 - Prime numbers")
         print("6 - Number add")
@@ -23,7 +23,7 @@ def menu_system():
         elif choice == 2:
             month_dictionary()
         elif choice == 3:
-            band_name()
+            tip_calc()
         elif choice == 4:
             add_word()
         elif choice == 4:
@@ -151,10 +151,13 @@ def word_get():
     return word_choice, hint
 
 
-def band_name():
-    city = input('What city did you grow up in?: ')
-    pet = input('What was your first pet?: ')
-    print(f'Your band could be called {city} {pet}')
+def tip_calc():
+    total = float(input('What is the total bill?: '))
+    tip = float(input('What tip percentage would you like to give?: '))
+    no_people = int(input('How many people are splitting the bill?: '))
+    total = total * (1 + (tip/100))
+    total = total / no_people
+    print(f'Each person should pay £{round(total, 2)}')
 
     
 def int_validate():
