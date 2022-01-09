@@ -10,10 +10,16 @@ def menu_system():
         print("------------------------------")
         print("1 - Mad libs")
         print("2 - Month dictionary")
+<<<<<<< HEAD
         print("3 - Band name generator")
         print("4 - Add word")
         print("5 - Prime numbers")
         print("6 - Number add")
+=======
+        print("3 - Add word")
+        print("4 - Prime numbers")
+        print("5 - Number add")
+>>>>>>> 64be2c8e63d4ae6b201b854e18b1d4e2a72ce4f0
         print("0 - Exit")
 
         choice = int_validation()
@@ -24,12 +30,15 @@ def menu_system():
         elif choice == 2:
             month_dictionary()
         elif choice == 3:
+<<<<<<< HEAD
             band_name()
         elif choice == 4:
+=======
+>>>>>>> 64be2c8e63d4ae6b201b854e18b1d4e2a72ce4f0
             add_word()
-        elif choice == 5:
+        elif choice == 4:
             prime_nums()
-        elif choice == 6:
+        elif choice == 5:
             num_add()
         elif choice == 0:
             exit = True
@@ -152,12 +161,15 @@ def word_get():
     return word_choice, hint
 
 
+<<<<<<< HEAD
 def band_name():
     city = input('What city did you grow up in?: ')
     pet = input('What was your first pet?: ')
     print(f'Your band could be called {city} {pet}')
 
     
+=======
+>>>>>>> 64be2c8e63d4ae6b201b854e18b1d4e2a72ce4f0
 def int_validate():
     valid = False
     while not valid:
