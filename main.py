@@ -1,4 +1,3 @@
-
 import random
 
 
@@ -150,6 +149,7 @@ def word_get():
     hint = hint_list[number]
     # print(hint)
     return word_choice, hint
+
 
 def band_name():
     city = input('What city did you grow up in?: ')
