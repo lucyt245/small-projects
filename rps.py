@@ -2,6 +2,7 @@ import random
 
 user_score = 0
 comp_score = 0
+num_games = 0
 
 options = ['rock', 'paper', 'scissors']
 
@@ -32,5 +33,7 @@ while True:
         print('You lose!')
         comp_score += 1
 
+    num_games += 1
+
 print(f'You won {user_score} games!')
-print(f'That was a {(user_score / (user_score + comp_score)) * 100}% win rate!')
+print(f'That was a {int((user_score / num_games) * 100)}% win rate!')
